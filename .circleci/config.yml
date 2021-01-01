@@ -1,11 +1,11 @@
+
 version: 2.1
 jobs:
   build:
     docker:
       - image: circleci/node:latest
-    branches:
-      only: master
     steps:
+      - run: echo "build test start"
       - checkout
       - restore_cache:
           keys:
@@ -18,3 +18,19 @@ jobs:
           key: v1-dependencies-
       - run: yarn test
       - run: yarn build
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - develop
+      - deploy-stage:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
