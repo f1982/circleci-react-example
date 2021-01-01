@@ -28,9 +28,9 @@ workflows:
             branches:
               ignore:
                 - develop
-      - deploy-stage:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
+      # - deploy-stage:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: main
