@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is a example for checking out how CircleCI and React.js can work together.
+          This is an example for checking out how CircleCI and React.js can work together.
         </p>
         <a
           className="App-link"
